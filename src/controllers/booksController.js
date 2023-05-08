@@ -13,7 +13,7 @@ const createBook = async function (req, res) {
         .send({ status: false, message: "Body should not be empty" });
     }
 
-    const keys = ["title", "excerpt", "userId", "ISBN", "category","subcategory", "reviews","isDeleted","releasedAt"];
+    const keys = ["title", "excerpt", "userId", "ISBN", "category","subcategory", "reviews","isDeleted","releasedAt","bookCover"];
 
     if (!Object.keys(req.body).every((elem) => keys.includes(elem))) {
       return res.status(400).send({ status: false, message: "wrong Parameters" });
@@ -71,7 +71,7 @@ const createBook = async function (req, res) {
     return res.status(500).send({ status: false, message: error.message });
   }
 };
-
+//**********Get Book by Query Param ******************/
 let getBooks = async function (req, res) {
   try {
       let data = req.query
@@ -117,6 +117,8 @@ let getBooks = async function (req, res) {
   }
 
 }
+
+//****************Get Book with Path Param *********************/
 const getBook = async function(req,res){
 
     try{ 
@@ -146,9 +148,12 @@ const getBook = async function(req,res){
  
  }
 
+
+ //************updtae book***************** */
 const updateBook  = async function(req,res){
 
-   try{ const data = req.body
+   try{ 
+    const data = req.body
     const bookId = req.params.bookId
 
     if (Object.keys(data).length == 0) {

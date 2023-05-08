@@ -1,6 +1,6 @@
 const express = require('express');
 var bodyParser = require('body-parser');
-// const multer = require('multer')
+const multer = require('multer')
 const route = require('./routes/route')
 const app = express();
 const mongoose=require('mongoose')
@@ -14,7 +14,7 @@ mongoose.connect("mongodb+srv://book-management:31VMJSSWSjcdoaAO@cluster0.eemzti
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(multer().any()) 
+app.use(multer().any()) 
 app.use('/', route);
 
 app.use(function(req,res){

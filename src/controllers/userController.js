@@ -75,6 +75,7 @@ const createUser = async function (req, res) {
     res.status(500).send({ status: false, message: error.message });
   }
 }
+//************************ Login User  ************************************/
 
 const loginUser=async function(req,res){
     try {

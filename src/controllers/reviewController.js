@@ -7,7 +7,8 @@ const isValidBook = require("../validators/bookValidator")
 
 const createReview = async function (req, res) {
 
-    try{const bookId = req.params.bookId
+    try{
+        const bookId = req.params.bookId
     const data = req.body
     const bodyId = req.body.bookId
     //not done in authentication
@@ -64,6 +65,7 @@ catch(error)
     return res.status(500).send({status:false,message:error.message})
 }
 }
+//***************Review by Id**************************** */
 
 let deleteReviewById = async function (req, res) {
     try {
